@@ -6,7 +6,7 @@ This project uses the OMDb API to fetch real-time movie data.
 
 🚀 Live Demo
 
-(Add your Netlify or GitHub Pages link here)
+[(Add your Netlify or GitHub Pages link here)](https://dhilip45.github.io/movie-finder/)
 
 📌 Project Overview
 
