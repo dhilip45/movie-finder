@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Indian Movie Finder</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="card">
+      <h2 id="title">🎬 CineScope Movie Finder</h2>
+
+      <input
+        type="text"
+        id="moviename"
+        placeholder="Search movie (e.g., Dangal, Bahubali)"
+      />
+      <button id="fetchbtn">Find Movie</button>
+
+      <div class="loading" id="loading"></div>
+      <div id="error"></div>
+      <img id="poster" alt="Movie Poster" />
+      <div id="info"></div>
+      <div id="hint">Press Enter to search</div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
