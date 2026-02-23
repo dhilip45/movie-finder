@@ -1,4 +1,4 @@
-const API_key = "48109657";
+const API_KEY = "48109657";
 
 const input = document.getElementById("moviename");
 const button = document.getElementById("fetchbtn");
@@ -14,6 +14,7 @@ const showError = (message) => {
 const clearUI = () => {
   showError("");
   poster.style.display = "none";
+  poster.src = "";
   info.innerHTML = "";
 };
 
@@ -29,22 +30,21 @@ async function fetchMovie() {
 
   loading.textContent = "Loading...";
 
-  const url = `https://www.omdbapi.com/?t=${encodeURIComponent(name)}&apikey=${API_key}`;
+  const url = `https://www.omdbapi.com/?t=${encodeURIComponent(name)}&apikey=${API_KEY}`;
 
   try {
-    const res = await fetch(url, { cache: "no-store" });
-    const data = await res.json();
+    const response = await fetch(url, { cache: "no-store" });
+    const data = await response.json();
 
     loading.textContent = "";
 
-    if (!res.ok || data.Response === "False") {
+    if (!response.ok || data.Response === "False") {
       throw new Error(data.Error || "Movie not found!");
     }
 
-    // Split actors list
-    let actors = data.Actors ? data.Actors.split(",") : [];
-
-    let hero = actors[0] ? actors[0].trim() : "N/A";
+    // Extract first actor as Hero
+    const actors = data.Actors ? data.Actors.split(",") : [];
+    const hero = actors.length > 0 ? actors[0].trim() : "N/A";
 
     // Show poster
     if (data.Poster && data.Poster !== "N/A") {
@@ -75,6 +75,7 @@ input.addEventListener("keydown", (e) => {
   }
 });
 
+// Typing Animation
 const title = document.getElementById("title");
 const text = "🎬 CineScope Movie Finder";
 let index = 0;
