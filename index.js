@@ -45,7 +45,6 @@ async function fetchMovie() {
     let actors = data.Actors ? data.Actors.split(",") : [];
 
     let hero = actors[0] ? actors[0].trim() : "N/A";
-    let villain = actors[2] ? actors[2].trim() : "N/A";
 
     // Show poster
     if (data.Poster && data.Poster !== "N/A") {
@@ -60,7 +59,6 @@ async function fetchMovie() {
       🎭 Genre: ${data.Genre}<br>
       🌍 Language: ${data.Language}<br>
       🎬 Hero: ${hero}<br>
-      😈 Villain: ${villain}<br>
       📝 Plot: ${data.Plot}
     `;
   } catch (error) {
